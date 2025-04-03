@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\43022067801\\Desktop\\API_Jogos-Usuario\\Api_Jogos-Isaac\\Api_Jogos-Isaac.csproj": {}
+    "C:\\Users\\43022067801\\Desktop\\API_Jogos-Usuario\\Api_Jogos-Isaac.csproj": {}
   },
   "projects": {
-    "C:\\Users\\43022067801\\Desktop\\API_Jogos-Usuario\\Api_Jogos-Isaac\\Api_Jogos-Isaac.csproj": {
+    "C:\\Users\\43022067801\\Desktop\\API_Jogos-Usuario\\Api_Jogos-Isaac.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\43022067801\\Desktop\\API_Jogos-Usuario\\Api_Jogos-Isaac\\Api_Jogos-Isaac.csproj",
+        "projectUniqueName": "C:\\Users\\43022067801\\Desktop\\API_Jogos-Usuario\\Api_Jogos-Isaac.csproj",
         "projectName": "Api_Jogos-Isaac",
-        "projectPath": "C:\\Users\\43022067801\\Desktop\\API_Jogos-Usuario\\Api_Jogos-Isaac\\Api_Jogos-Isaac.csproj",
+        "projectPath": "C:\\Users\\43022067801\\Desktop\\API_Jogos-Usuario\\Api_Jogos-Isaac.csproj",
         "packagesPath": "C:\\Users\\43022067801\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\43022067801\\Desktop\\API_Jogos-Usuario\\Api_Jogos-Isaac\\obj\\",
+        "outputPath": "C:\\Users\\43022067801\\Desktop\\API_Jogos-Usuario\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -63,6 +63,10 @@
               "suppressParent": "All",
               "target": "Package",
               "version": "[9.0.3, )"
+            },
+            "Swashbuckle.AspNetCore": {
+              "target": "Package",
+              "version": "[7.3.1, )"
             }
           },
           "imports": [
