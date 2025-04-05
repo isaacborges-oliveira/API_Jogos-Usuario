@@ -16,6 +16,69 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "Api_Jogos_Isaac.Controllers.JogoController",
+    "Method": "Get",
+    "RelativePath": "api/Jogo",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Api_Jogos_Isaac.Controllers.JogoController",
+    "Method": "Delete",
+    "RelativePath": "api/Jogo/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Api_Jogos_Isaac.Controllers.JogoController",
+    "Method": "Put",
+    "RelativePath": "api/Jogo/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": true
+      },
+      {
+        "Name": "jogo",
+        "Type": "Api_Jogos_Isaac.Domains.Jogos",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Api_Jogos_Isaac.Controllers.JogoController",
+    "Method": "Get",
+    "RelativePath": "api/Jogo/BuscarPorId/{Id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "Id",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "Api_Jogos_Isaac.Controllers.UsuarioController",
     "Method": "Post",
     "RelativePath": "api/Usuario",
@@ -24,8 +87,71 @@
     "Order": 0,
     "Parameters": [
       {
+        "Name": "novoUsuario",
+        "Type": "Api_Jogos_Isaac.Domains.Usuarios",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Api_Jogos_Isaac.Controllers.UsuarioController",
+    "Method": "Get",
+    "RelativePath": "api/Usuario",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Api_Jogos_Isaac.Controllers.UsuarioController",
+    "Method": "Delete",
+    "RelativePath": "api/Usuario/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Api_Jogos_Isaac.Controllers.UsuarioController",
+    "Method": "Put",
+    "RelativePath": "api/Usuario/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": true
+      },
+      {
         "Name": "usuario",
         "Type": "Api_Jogos_Isaac.Domains.Usuarios",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Api_Jogos_Isaac.Controllers.UsuarioController",
+    "Method": "Get",
+    "RelativePath": "api/Usuario/BuscarPorId/{Id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "Id",
+        "Type": "System.Guid",
         "IsRequired": true
       }
     ],

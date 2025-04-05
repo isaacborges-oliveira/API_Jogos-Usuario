@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Api_Jogos-Isaac")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+fd542bf913bd82aae62fb31e7a7299bab0edf8f8")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+ce9e93d87e6318f32e66ea7b8cf16c76c46bb291")]
 [assembly: System.Reflection.AssemblyProductAttribute("Api_Jogos-Isaac")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Api_Jogos-Isaac")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

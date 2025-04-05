@@ -33,6 +33,19 @@ namespace Api_Jogos_Isaac.Repository
             }
         }
 
+        public Jogos BuscarPorId(Guid id)
+        {
+            try
+            {
+                return _context.Jogos.Find(id);
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
         public void Cadastrar(Jogos jogos)
         {
             try

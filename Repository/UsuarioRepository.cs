@@ -39,6 +39,19 @@ namespace Api_Jogos_Isaac.Repository
             }
         }
 
+        public Usuarios BuscarPorId(Guid id)
+        {
+            try
+            {
+                return _context.Usuarios.Find(id);
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
         public void Cadastrar(Usuarios usuario)
         {
             try
@@ -86,7 +99,14 @@ namespace Api_Jogos_Isaac.Repository
 
         List<Usuarios> IUsuarioRepository.Listar()
         {
-            throw new NotImplementedException();
+            try
+            {
+                return _context.Usuarios.ToList();
+            }
+            catch (Exception)
+            {
+                throw;
+            }
         }
     }
 }

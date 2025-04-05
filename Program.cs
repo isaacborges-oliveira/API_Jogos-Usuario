@@ -1,39 +1,52 @@
-using System.Reflection;
+
 using Api_Jogos_Isaac.Context;
 using Api_Jogos_Isaac.Interfaces;
 using Api_Jogos_Isaac.Repository;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi.Models;
 
+
 var builder = WebApplication.CreateBuilder(args);
 
-builder.Services // Configuração dos serviços
-    .AddControllers()
-    .AddJsonOptions(options =>
+
+
+builder.Services // Acessa a coleção de serviços da aplicação (Dependency Injection)
+    .AddControllers() // Adiciona suporte a controladores na API (MVC ou Web API)
+    .AddJsonOptions(options => // Configura as opções do serializador JSON padrão (System.Text.Json)
     {
+        // Configuração para ignorar propriedades nulas ao serializar objetos em JSON
         options.JsonSerializerOptions.DefaultIgnoreCondition = System.Text.Json.Serialization.JsonIgnoreCondition.WhenWritingNull;
+
+        // Configuração para evitar referência circular ao serializar objetos que possuem relacionamentos recursivos
         options.JsonSerializerOptions.ReferenceHandler = System.Text.Json.Serialization.ReferenceHandler.IgnoreCycles;
     });
 
+// Adiciona o contexto do banco de dados (exemplo com SQL Server)
 builder.Services.AddDbContext<Jogos_Context>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
+
+// Adicionar o  e a interface ao container de injeção de dependência
 builder.Services.AddScoped<IUsuarioRepository, UsuarioRepository>();
 builder.Services.AddScoped<IJogosRepository, JogosRepository>();
 
+//Adicionar o serviço de Controllers
+builder.Services.AddControllers();
+
 builder.Services.AddEndpointsApiExplorer();
+
 builder.Services.AddSwaggerGen(options =>
 {
     options.SwaggerDoc("v1", new OpenApiInfo
     {
         Version = "v1",
-        Title = "API de Eventos",
-        Description = "Aplicação para gerenciamento de eventos",
+        Title = "API de Games",
+        Description = "Aplicaçao para gerenciamento de Games",
         TermsOfService = new Uri("https://example.com/terms"),
         Contact = new OpenApiContact
         {
-            Name = "Carlos Roque",
-            Url = new Uri("https://www.linkedin.com/in/roquecarlos/")
+            Name = "Rikelme",
+            Url = new Uri("https://github.com/Rikelme03")
         },
         License = new OpenApiLicense
         {
@@ -41,25 +54,24 @@ builder.Services.AddSwaggerGen(options =>
             Url = new Uri("https://example.com/license")
         }
     });
-
-    var xmlFilename = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
-    options.IncludeXmlComments(Path.Combine(AppContext.BaseDirectory, xmlFilename));
 });
 
-// Configuração de CORS
+
+// CORS
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("CorsPolicy",
         builder =>
         {
             builder.AllowAnyOrigin()
-                .AllowAnyHeader()
-                .AllowAnyMethod();
+            .AllowAnyHeader()
+            .AllowAnyMethod();
         });
 });
 
 
 var app = builder.Build();
+
 
 if (app.Environment.IsDevelopment())
 {
@@ -68,16 +80,23 @@ if (app.Environment.IsDevelopment())
         options.SerializeAsV2 = true;
     });
 
-    app.UseSwaggerUI(options =>
+    app.UseSwaggerUI(options => // UseSwaggerUI is called only in Development.
     {
         options.SwaggerEndpoint("/swagger/v1/swagger.json", "v1");
         options.RoutePrefix = string.Empty;
     });
 }
 
-// Adiciona CORS e mapeia controllers
+
+
+//Adiciona o Cors(política criada)
 app.UseCors("CorsPolicy");
+
+//Adicionar o mapeamento dos controllers
 app.MapControllers();
 
-// Inicia a aplicação
+app.UseAuthentication();
+
+app.UseAuthorization();
+
 app.Run();
